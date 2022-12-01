@@ -1,0 +1,9 @@
+
+@day = 1
+@year = 2022
+
+
+###
+# @prompt sessionId Your session id from the bin/secrets.dart file
+GET https://adventofcode.com/{{year}}/day/{{day}}/input
+Cookie: session={{sessionId}}; 

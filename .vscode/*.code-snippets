@@ -1,0 +1,41 @@
+{
+  "day file scaffold": {
+    "prefix": [
+      "adventday",
+      "ad"
+    ],
+    "body": [
+      "import '../day.dart';",
+      "",
+      "class ${TM_FILENAME_BASE/(.*)/${1:/capitalize}/} extends Day {",
+      "  ${TM_FILENAME_BASE/(.*)/${1:/capitalize}/}() : super(${TM_FILENAME_BASE/day0?//gi}, $CURRENT_YEAR);",
+      "",
+      "  Future<void> part1() async {",
+      "    var stringLines = await parseData();",
+      "    print(stringLines);",
+      "  }",
+      "",
+      "  Future<void> part2() async {",
+      "    var stringLines = await parseData();",
+      "    print(stringLines);",
+      "  }",
+      "",
+      "  Future<List<String>> parseData() async {",
+      "    var stringLines = <String>[];",
+      "    await for (String line in lines) {",
+      "      //var data = line",
+      "          //.split(' -> ')",
+      "          //.map((coords) => coords.split(','))",
+      "          //.expand((point) => point)",
+      "          //.map((e) => int.parse(e))",
+      "          //.toList();",
+      "",
+      "      stringLines.add(line);",
+      "    }",
+      "    return stringLines;",
+      "  }",
+      "}"
+    ],
+    "description": "its a new day for adventin'"
+  },
+}
