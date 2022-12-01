@@ -99,7 +99,7 @@ class Day04 extends Day {
 
     for (var number in drawNumbers) {
       // print('drawn: $number');
-      break;
+      // break;
       for (var board in boards) {
         var win = board.checkForWin(number);
         if (win) {
