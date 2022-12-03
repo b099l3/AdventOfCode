@@ -4,8 +4,8 @@ import '2022/2022.dart';
 
 void main(List<String> arguments) async {
   try {
-    await Day02().part1();
-    await Day02().part2();
+    await Day03().part1();
+    await Day03().part2();
   } catch (e) {
     print('Error: $e');
   }
