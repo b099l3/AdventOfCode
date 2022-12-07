@@ -6,9 +6,9 @@ class Day07 extends Day {
   var fileSystem = FileSystem();
 
   Future<void> part1() async {
-    // await parseData();
-    // final size = fileSystem.findTotalSizeForDirectoriesUnder(100000);
-    // print(size);
+    await parseData();
+    final size = fileSystem.findTotalSizeForDirectoriesUnder(100000);
+    print(size);
   }
 
   Future<void> part2() async {
@@ -44,10 +44,6 @@ class FileSystem {
   final List<Directory> contents = [Directory(name: '/')];
   Directory? currentDirectory;
   int totalSpace = 70000000;
-  // 204745890
-  // 46380101
-  // 6380101
-  // 70000000
   int updateSpace = 30000000;
 
   void add(File file) {
@@ -144,7 +140,7 @@ class FileSystem {
   }
 }
 
-class Directory extends File implements Comparable {
+class Directory extends File {
   final Directory? parent;
   final List<File> contents = [];
   Directory({required super.name, this.parent});
@@ -168,17 +164,6 @@ class Directory extends File implements Comparable {
             .map((e) => e.getSize())
             .reduce((size1, size2) => size1 + size2);
     return size;
-  }
-
-  @override
-  int compareTo(other) {
-    if (size > other.size) {
-      return -1;
-    } else if (size < other.size) {
-      return 1;
-    } else {
-      return 0;
-    }
   }
 }
 
