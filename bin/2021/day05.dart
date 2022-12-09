@@ -1,17 +1,10 @@
 import '../day.dart';
-
-class Coord {
-  int x, y;
-  Coord(this.x, this.y);
-
-  @override
-  String toString() => '[$x,$y]';
-}
+import '../utils/coordinate.dart';
 
 class ThermalLine {
-  Coord pointA;
-  Coord pointB;
-  List<Coord> coordsCovered = [];
+  Coordinate pointA;
+  Coordinate pointB;
+  List<Coordinate> coordsCovered = [];
   ThermalLine(this.pointA, this.pointB) {
     coordsCovered = _getCoordsCovered();
   }
@@ -23,13 +16,13 @@ class ThermalLine {
   @override
   String toString() => '[${pointA.x},${pointA.y}],[${pointB.x},${pointB.y}],';
 
-  List<Coord> _getCoordsCovered() {
+  List<Coordinate> _getCoordsCovered() {
     // a[1,3] b[3,1]
     // a[1,3] b[3,1] c[2,2]
-    var covered = <Coord>[pointA, pointB];
-    var refPoint = Coord(pointA.x, pointA.y);
+    var covered = <Coordinate>[pointA, pointB];
+    var refPoint = Coordinate(pointA.x, pointA.y);
     while (refPoint.x != pointB.x || refPoint.y != pointB.y) {
-      var newPoint = Coord(refPoint.x, refPoint.y);
+      var newPoint = Coordinate(refPoint.x, refPoint.y);
 
       if (pointA.x < pointB.x) {
         newPoint.x++;
@@ -110,8 +103,8 @@ class Day05 extends Day {
           .toList();
 
       thermalLines.add(ThermalLine(
-        Coord(data[0], data[1]),
-        Coord(data[2], data[3]),
+        Coordinate(data[0], data[1]),
+        Coordinate(data[2], data[3]),
       ));
     }
     return thermalLines;
