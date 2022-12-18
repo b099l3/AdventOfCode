@@ -7,7 +7,6 @@ class Day09 extends Day {
   @override
   bool runTestInput = false;
 
-  @override
   String testInput1 = '''R 4
 U 4
 L 3
