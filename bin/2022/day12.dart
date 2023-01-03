@@ -25,8 +25,8 @@ abdefghi''';
     print(stringLines);
   }
 
-  Future<World> parseData() async {
-    final world = World();
+  Future<Map> parseData() async {
+    final world = Map();
     await for (String line in lines) {
       world.setup(line);
     }
@@ -34,7 +34,7 @@ abdefghi''';
   }
 }
 
-class World {
+class Map {
   List<String> get characters => lowerCaseAToZ;
   List<List<String>> map = [];
 
